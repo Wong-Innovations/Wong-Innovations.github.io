@@ -1,0 +1,27 @@
+canvas {
+    background: #eee;
+    display: block;
+}
+.ui {
+    position: absolute;
+    top: 320px;
+    left: 0;
+    width: 480px;
+    height: 320px;
+    padding: 40px;
+    padding-top: 5px;
+    display: block;
+}
+input {
+    margin: 20px;
+}
+#min{
+    position: absolute;
+    left: 90px;
+    top: 85px;
+}
+#max{
+    position: absolute;
+    left: 230px;
+    top: 85px;
+}

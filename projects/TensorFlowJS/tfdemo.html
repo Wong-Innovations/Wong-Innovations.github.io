@@ -1,0 +1,291 @@
+<html>
+  <head>
+    <!-- Load TensorFlow.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.13.3/dist/tf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
+    <script>
+      var xmlhttp = new XMLHttpRequest();
+      var model = tf.sequential();
+      var iris;
+      var percentages;
+
+      // Data Retrieval and init
+      xmlhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+              iris = JSON.parse(this.responseText);
+              console.log('JSON data recieved.');
+              train(iris);
+          }
+      };
+      xmlhttp.open("GET", "https://api.myjson.com/bins/iorsa");
+      xmlhttp.send();
+
+
+      function train(iris){
+        var storage = [];
+        var setosa = [];
+        var virgincia = [];
+        var versicolor = [];
+        var setosa2 = [];
+        var virgincia2 = [];
+        var versicolor2 = [];
+
+        for (var i=0;i<147;i++){
+          if (iris[i].species == "setosa"){
+            setosa.push({
+              x: iris[i].sepal_width,
+              y: iris[i].sepal_length
+            });
+          }else if (iris[i].species == "versicolor"){
+            virgincia.push({
+              x: iris[i].sepal_width,
+              y: iris[i].sepal_length
+            });
+          }else {
+            versicolor.push({
+              x: iris[i].sepal_width,
+              y: iris[i].sepal_length
+            });
+          }
+        }
+
+        for (var i=0;i<147;i++){
+          if (iris[i].species == "setosa"){
+            setosa2.push({
+              x: iris[i].petal_width,
+              y: iris[i].petal_length
+            });
+          }else if (iris[i].species == "versicolor"){
+            virgincia2.push({
+              x: iris[i].petal_width,
+              y: iris[i].petal_length
+            });
+          }else {
+            versicolor2.push({
+              x: iris[i].petal_width,
+              y: iris[i].petal_length
+            });
+          }
+        }
+
+        var ctx = document.getElementById("myChart").getContext("2d");
+        var scatterChart = new Chart(ctx, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: ["Setosa"],
+                    backgroundColor: "rgba(0,255,0,0.2)",
+                    borderColor: "rgb(0,255,0)",
+                    data: setosa
+                },
+                {
+                    label: ["Virginica"],
+                    backgroundColor: "rgba(255,0,0,0.2)",
+                    borderColor: "rgb(255,0,0)",
+                    data: virgincia
+                },
+                {
+                    label: ["Versicolor"],
+                    backgroundColor: "rgba(0,0,255,0.2)",
+                    borderColor: "rgb(0,0,255)",
+                    data: versicolor
+                }]
+            },
+            options: {
+                scales: {
+                  xAxes: [{
+                    type: 'linear',
+                    position: 'bottom',
+                    scaleLabel: {
+                      display: true,
+                      labelString: 'Sepal Width'
+                    }
+                  }],
+                  yAxes: [{
+                      scaleLabel: {
+                        display: true,
+                        labelString: 'Sepal Length'
+                      }
+                  }]
+                }
+            }
+        });
+
+        var ctx2 = document.getElementById("myChart2").getContext("2d");
+        var scatterChart2 = new Chart(ctx2, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: ["Setosa"],
+                    backgroundColor: "rgba(0,255,0,0.2)",
+                    borderColor: "rgb(0,255,0)",
+                    data: setosa2
+                },
+                {
+                    label: ["Virginica"],
+                    backgroundColor: "rgba(255,0,0,0.2)",
+                    borderColor: "rgb(255,0,0)",
+                    data: virgincia2
+                },
+                {
+                    label: ["Versicolor"],
+                    backgroundColor: "rgba(0,0,255,0.2)",
+                    borderColor: "rgb(0,0,255)",
+                    data: versicolor2
+                }]
+            },
+            options: {
+                scales: {
+                  xAxes: [{
+                    type: 'linear',
+                    position: 'bottom',
+                    scaleLabel: {
+                      display: true,
+                      labelString: 'Petal Width'
+                    }
+                  }],
+                  yAxes: [{
+                      scaleLabel: {
+                        display: true,
+                        labelString: 'Petal Length'
+                      }
+                  }]
+                }
+            }
+        });
+
+        // Formatting Data
+        const trainingData = tf.tensor2d(iris.map(item => [
+          item.sepal_length, item.sepal_width, item.petal_length, item.petal_width,
+        ]));
+        const outputData = tf.tensor2d(iris.map(item => [
+          item.species === "setosa" ? 1 : 0,
+          item.species === "virginica" ? 1 : 0,
+          item.species === "versicolor" ? 1 : 0,
+        ]));
+
+        // Configuring Layers
+
+        model.add(tf.layers.dense({
+          inputShape: [4], // 4 = input dimentions of training data
+          activation: "sigmoid", // Good for classificaation problems (1 or 0) multi-considerations
+          units: 5, // Putting out five units
+        }));
+        model.add(tf.layers.dense({
+          inputShape: [5],
+          activation: "sigmoid",
+          units: 3,
+        }));
+        model.add(tf.layers.dense({
+          activation: "sigmoid",
+          units: 3,
+        }));
+        model.compile({ // Error handling
+          loss: "meanSquaredError",
+          optimizer: tf.train.adam(.06),
+        });
+
+        // Training the model
+        const startTime = Date.now();
+        model.fit(trainingData, outputData, {
+          epochs: 100,
+          callbacks: {
+            onEpochEnd: async (epoch, log) => {
+              storage.push({
+                x: epoch,
+                y: log.loss
+              });
+            },
+            onTrainEnd: () => {
+              console.log("DONE!", Date.now() - startTime, "ms");
+              graph(storage);
+              predict(model, percentages);
+            }
+          }
+        });
+
+      }
+
+      function graph(storage){
+        var ctx3 = document.getElementById("myChart3").getContext("2d");
+        var scatterChart = new Chart(ctx3, {
+            type: 'scatter',
+            data: {
+              datasets: [{
+                label: ["Training"],
+                backgroundColor: "rgba(0,0,0,0.2)",
+                borderColor: "#000",
+                data: storage
+              }]
+            },
+            options: {
+                scales: {
+                  xAxes: [{
+                    type: 'linear',
+                    position: 'bottom',
+                    scaleLabel: {
+                      display: true,
+                      labelString: 'Epoch'
+                    }
+                  }],
+                  yAxes: [{
+                      scaleLabel: {
+                        display: true,
+                        labelString: 'Loss'
+                      }
+                  }]
+                }
+            }
+        });
+      }
+
+      function predict(model, percentages){
+        destroyCanvas();
+        var irisTesting = [parseFloat(document.getElementById('sepal_length').value), parseFloat(document.getElementById('sepal_width').value), parseFloat(document.getElementById('petal_length').value), parseFloat(document.getElementById('petal_width').value)];
+        var testingData = tf.tensor2d(irisTesting, [1,4]);
+        var pred = model.predict(testingData).dataSync();
+        var percentages = [pred[0]*100, pred[1]*100, pred[2]*100];
+        console.log(percentages);
+        var ctx4 = document.getElementById("myChart4").getContext("2d");
+        var barChart = new Chart(ctx4, {
+            type: 'bar',
+            data: {
+              labels: ["Setosa", "Virginica", "Versicolor"],
+              datasets: [
+                {
+                  label: "Prediction",
+                  backgroundColor: ["#FF0000", "#00FF00", "#0000FF"],
+                  data: percentages
+                }
+              ]
+            },
+            options: {
+              legend: { display: false },
+              title: {
+                display: true,
+                text: 'Predicted Species'
+              },
+              scales: {
+                yAxes: [{
+                  scaleLabel: {
+                    display: true,
+                    labelString: 'Certainty (%)'
+                  }
+                }]
+              }     
+            }
+        });
+      }
+      function destroyCanvas(){
+        document.getElementById('bar').innerHTML = '<canvas id="myChart4" width="400" height="250" style="display:block;width:400px;height:250px;"></canvas>';
+      }
+    </script>
+    <title>Species Classifior</title>
+  </head>
+
+  <body>
+      <div style="position:absolute; top:0; left:0; height:500px; width:500px;">
+          <canvas id="myChart" width="400" height="400" style="display:block;width:400px;height:400px;"></canvas>
+      </div>
+  </body>
+</html>
