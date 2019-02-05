@@ -1,0 +1,115 @@
+{% load static %}
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Computing Innovation">
+  <meta name="keywords" content="Coding,Student,Intern,Computer Science,Math">
+  <meta name="author" content="Dylan Wong">
+  
+  <link rel="stylesheet" type="text/css" href="{% static 'main/css/main.css' %}">
+  <title>Wong Innovation - Home</title>
+</head>
+<body>
+  <div class="pimg1">
+    <div class="navlinks">
+      <div class="bars" onclick="dropdown()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+      <a onclick="" id="contact">CONTACT</a>
+      <a href="{% static 'main/resume.pdf' %}" target="_blank" class="un">RESUME</a>
+      <a href="/about" class="un">ABOUT</a>
+      <a href="/projects" class="un">PROJECTS</a>
+      <a href="/" class="un">HOME</a>
+    </div>
+    <div class="landing">
+      <span style="position: relative; left: 10px;">
+        Let's Make Something.
+      </span>
+      <br>
+      <a onclick="email()" class="link">CONTACT</a>
+      <a href="{% static 'main/resume.pdf' %}" target="_blank" class="link">RESUME</a>
+    </div>
+  </div>
+
+  <section class="section section-light">
+    <div class="codetext">
+      <img src="{% static 'main/img/html5.png' %}" alt="HTML5">
+      <p>bjhabhjbajbax</p>
+    </div>
+    <div class="codetext">
+      <img src="{% static 'main/img/python.png' %}" alt="Python">
+      <p>adbabduahsbud</p>
+    </div>
+    <div class="codetext">
+      <img src="{% static 'main/img/c++.png' %}" alt="C++">
+      <p>pojdaythasdda</p>
+    </div>
+  </section>
+
+  <div class="pimg2">
+    <div class="ptext">
+      <span class="ctext">
+        Read about my latest projects <a href="/projects">here</a>.
+      </span>
+    </div>
+  </div>
+
+  <section class="section section-dark">
+    <h2>Section Two</h2>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt, laudantium, quibusdam? Nobis, delectus, commodi, fugit amet tempora facere dolores nisi facilis consequatur, odio hic minima nostrum. Perferendis eos earum praesentium, blanditiis sapiente labore aliquam ipsa architecto vitae. Minima soluta temporibus voluptates inventore commodi cumque esse suscipit optio aliquam et, dolorem a cupiditate nihil fuga laboriosam fugiat placeat dignissimos! Unde eveniet placeat quisquam blanditiis voluptatem doloremque fugiat dolor repellendus ratione in.
+    </p>
+  </section>
+
+  <div class="pimg1">
+    <div class="ptext">
+      <span class="border">
+        Wong Innovations
+      </span>
+
+      <table class="socialNav">
+
+        <tr>
+          <td>
+            <a href="https://www.youtube.com/channel/UCq1QeEvXTggml38Tj7sSvrQ" target="_blank">
+              <img class="socialIcon" src="{% static 'main/img/youtube.png' %}">
+            </a>
+          </td>
+          <td><p class="socialText">YouTube</p></td>
+        </tr>
+
+        <tr>
+          <td>
+            <a href="https://www.github.com/wong-innovations" target="_blank">
+              <img class="socialIcon" src="{% static 'main/img/github.png' %}">
+            </a>
+          </td>
+          <td><p class="socialText">GitHub</p></td>
+        </tr>
+
+        <tr>
+          <td>
+            <a href="https://www.linkedin.com/in/dylan-wong-csrules/" target="_blank">
+              <img class="socialIcon" src="{% static 'main/img/linkedin.png' %}">
+            </a>
+          </td>
+          <td><p class="socialText">LinkedIn</p></td>
+        </tr>
+
+      </table>
+    </div>
+  </div>
+
+  <script>
+    function dropdown(){
+      var links = document.getElementsByClassName("navlinks").getElementsByTagName("A");
+      links.style
+    }
+  </script>
+</body>
+</html>
