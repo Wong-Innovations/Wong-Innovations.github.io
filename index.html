@@ -111,6 +111,7 @@
     }
     function verticalCenter(){
       let windowHeight = window.innerHeight;
+      console.log(windowHeight);
       document.getElementsByClassName("socialNav")[0].style.marginTop = `{(windowHeight-296)/2}`;
     }
     window.onload=verticalCenter;
