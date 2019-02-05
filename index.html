@@ -109,6 +109,11 @@
       var links = document.getElementsByClassName("navlinks").getElementsByTagName("A");
       links.style
     }
+    function verticalCenter(){
+      let windowHeight = window.innerHeight;
+      document.getElementsByClassName("socialNav")[0].style.marginTop = `{(windowHeight-296)/2}`;
+    }
+    window.onload=verticalCenter;
   </script>
 </body>
 </html>
