@@ -218,10 +218,7 @@ footer {
 .socialNav {
   height: auto;
   width: 250px;
-  margin-left: auto;
-  margin-right: auto;
-  position: absolute;
-  top: 25%;
+  margin: 240px auto 0 auto;
   color: white;
   font-size: 50px;
   display: block;
