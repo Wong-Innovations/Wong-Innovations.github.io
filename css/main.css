@@ -76,6 +76,7 @@ body, html{
   padding: 10px 30px;
   text-decoration: none;
   margin: 10px;
+  cursor: pointer;
 }
 
 .link:hover {
@@ -100,6 +101,7 @@ body, html{
   border: 2px solid white;
   padding: 10px 30px;
   color: white;
+  cursor: pointer;
 }
 
 #contact:hover {
@@ -236,4 +238,53 @@ footer {
 .socialText {
   display: inline;
   margin-left: 10px;
+}
+
+/* Contact Modal Stuff */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border-radius: 25px;
+  width: 80%;
+}
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+input[type=text], textarea{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=text]:focus, textarea:focus{
+  background-color: #d2d2d2;
 }
