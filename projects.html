@@ -16,7 +16,7 @@
         <div class="bar"></div>
         <div class="bar"></div>
       </div>
-      <a onclick="" id="contact">CONTACT</a>
+      <a onclick="showModel()" id="contact">CONTACT</a>
       <a href="./resume.pdf" target="_blank" class="un">RESUME</a>
       <a href="./about.html" class="un">ABOUT</a>
       <a href="#" class="un">PROJECTS</a>
@@ -93,10 +93,72 @@
 
     <br><br><br>
 
+    <div id="myModal" class="modal">
+
+      <div class="modal-content">
+  
+        <span class="close">&times;</span>
+  
+        <form action="https://docs.google.com/forms/d/e/1FAIpQLSej2pWdB1MyzpvzuTKMFFm2OLrWRASYSfpKRPZw_FIsFYJODQ/formResponse" target="hidden_iframe" method="POST" onsubmit="hideModal()">
+          <h1 style="text-align:center;margin-bottom:0;color:#2e2e2e">Drop Me A Line</h1>
+          <br>
+          <input type="text" name="entry.725941033" placeholder="Name*">
+          <input type="text" name="entry.1654627491" placeholder="Email*">
+          <input type="text" name="entry.1388997229" placeholder="Company/Organization">
+          <textarea name="entry.405716431" placeholder="Your Message*"></textarea>
+          <input type="submit" value="Submit">
+          <input type="reset" value="Reset">
+        </form>
+  
+        <iframe name="hidden_iframe" src="" id="hidden_iframe" style="display:none;"></iframe>
+        
+      </div>
+  
+    </div>
+
     <script>
       function dropdown(){
         var links = document.getElementsByClassName("navlinks").getElementsByTagName("A");
         links.style
+      }
+    </script>
+
+    <script>
+      // Model Code
+      var modal = document.getElementById('myModal');
+      var span = document.getElementsByClassName("close")[0];
+
+      function showModel() {
+        modal.style.display = "block";
+        disableScroll();
+      }
+
+      function hideModal() {
+        modal.style.display = "none";
+        enableScroll();
+      }
+
+      span.onclick = function() {
+        hideModal();
+      }
+
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          hideModal();
+        }
+      }
+
+      // Scroll prevention
+      function noscroll() {
+        window.scrollTo( 0, 0 );
+      }
+
+      function disableScroll() {
+        window.addEventListener('scroll', noscroll);
+      }
+
+      function enableScroll() {
+        window.removeEventListener('scroll', noscroll);
       }
     </script>
 

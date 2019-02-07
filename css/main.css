@@ -260,7 +260,7 @@ footer {
   margin: auto;
   padding: 20px;
   border-radius: 25px;
-  width: 80%;
+  width: 70%;
 }
 
 .close {
@@ -311,4 +311,8 @@ input[type=submit], input[type=reset] {
 input[type=submit]:hover, input[type=reset]:hover {
   color: #fefefe;
   background-color: black;
+}
+
+textarea {
+  min-height: 100px;
 }
