@@ -304,6 +304,7 @@ body, html {
     font-weight: bold;
     position: relative;
     top:-15px;
+    text-align: right;
   }
   
   .close:hover,
