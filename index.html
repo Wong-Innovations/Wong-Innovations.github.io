@@ -110,17 +110,18 @@
 
       <span class="close">&times;</span>
 
-      <form name="gform" id="gform" enctype="text/plain" action="http://" target="hidden_iframe" onsubmit="submitted=true;">
-        <h3>Contact</h3>
+      <form action="https://docs.google.com/forms/d/e/1FAIpQLSej2pWdB1MyzpvzuTKMFFm2OLrWRASYSfpKRPZw_FIsFYJODQ/formResponse" target="hidden_iframe" method="POST" onsubmit="hideModal()">
+        <h1 style="text-align:center;margin-bottom:0;color:#2e2e2e">Drop Me A Line</h1>
         <br>
-        <input type="text" name="fullname" placeholder="Name*">
-        <input type="text" name="email" placeholder="Email*">
-        <input type="text" name="company" placeholder="Company/Organization">
-        <textarea placeholder="Your Message*"></textarea>
+        <input type="text" name="entry.725941033" placeholder="Name*">
+        <input type="text" name="entry.1654627491" placeholder="Email*">
+        <input type="text" name="entry.1388997229" placeholder="Company/Organization">
+        <textarea name="entry.405716431" placeholder="Your Message*"></textarea>
         <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
       </form>
 
-      <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>
+      <iframe name="hidden_iframe" src="" id="hidden_iframe" style="display:none;"></iframe>
       
     </div>
 
@@ -148,15 +149,18 @@
       disableScroll();
     }
 
-    span.onclick = function() {
+    function hideModal() {
       modal.style.display = "none";
       enableScroll();
     }
 
+    span.onclick = function() {
+      hideModal();
+    }
+
     window.onclick = function(event) {
       if (event.target == modal) {
-        modal.style.display = "none";
-        enableScroll();
+        hideModal();
       }
     }
 
