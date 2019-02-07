@@ -19,34 +19,34 @@
         <div class="bar"></div>
         <div class="bar"></div>
       </div>
-      <a href="./contact.html" id="contact">CONTACT</a>
+      <a onclick="showModel()" id="contact">CONTACT</a>
       <a href="./resume.pdf" target="_blank" class="un">RESUME</a>
       <a href="./about.html" class="un">ABOUT</a>
       <a href="./projects.html" class="un">PROJECTS</a>
-      <a href="#" class="un">HOME</a>
+      <a href="" class="un">HOME</a>
     </div>
     <div class="landing">
       <span style="position: relative; left: 10px;">
         Let's Make Something.
       </span>
       <br>
-      <a onclick="email()" class="link">CONTACT</a>
+      <a onclick="showModel()" class="link">CONTACT</a>
       <a href="./resume.pdf" target="_blank" class="link">RESUME</a>
     </div>
   </div>
 
   <section class="section section-light">
     <div class="codetext">
-      <img src="./img/html5.png" alt="HTML5">
-      <p>bjhabhjbajbax</p>
+      <img src="./img/python.png" alt="Python">
+      <p style="margin-top:15px;">Versed in nearly every Python package, library, and framework, I have worked on projects such as Django webapps to machine learning with TensorFlow!</p>
     </div>
     <div class="codetext">
-      <img src="./img/python.png" alt="Python">
-      <p>adbabduahsbud</p>
+      <img src="./img/html5.png" alt="HTML5">
+      <p>Years of experience writing HTML5, JavaScript, and CSS3. I have built and maintained websites for local business owners; even the very site in front of you was hand coded.</p>
     </div>
     <div class="codetext">
       <img src="./img/c++.png" alt="C++">
-      <p>pojdaythasdda</p>
+      <p style="margin-top:8px;">A resent addition to my low-level arsonal, I have began learning C++ for school and for app development using the QT GUI library.</p>
     </div>
   </section>
 
@@ -104,6 +104,28 @@
     </div>
   </div>
 
+  <div id="myModal" class="modal">
+
+    <div class="modal-content">
+
+      <span class="close">&times;</span>
+
+      <form name="gform" id="gform" enctype="text/plain" action="http://" target="hidden_iframe" onsubmit="submitted=true;">
+        <h3>Contact</h3>
+        <br>
+        <input type="text" name="fullname" placeholder="Name*">
+        <input type="text" name="email" placeholder="Email*">
+        <input type="text" name="company" placeholder="Company/Organization">
+        <textarea placeholder="Your Message*"></textarea>
+        <input type="submit" value="Submit">
+      </form>
+
+      <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>
+      
+    </div>
+
+  </div>
+
   <script>
     function dropdown(){
       var links = document.getElementsByClassName("navlinks").getElementsByTagName("A");
@@ -116,5 +138,40 @@
     window.onload=verticalCenter;
   </script>
 
+  <script>
+    // Model Code
+    var modal = document.getElementById('myModal');
+    var span = document.getElementsByClassName("close")[0];
+
+    function showModel() {
+      modal.style.display = "block";
+      disableScroll();
+    }
+
+    span.onclick = function() {
+      modal.style.display = "none";
+      enableScroll();
+    }
+
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+        enableScroll();
+      }
+    }
+
+    // Scroll prevention
+    function noscroll() {
+      window.scrollTo( 0, 0 );
+    }
+
+    function disableScroll() {
+      window.addEventListener('scroll', noscroll);
+    }
+
+    function enableScroll() {
+      window.removeEventListener('scroll', noscroll);
+    }
+  </script>
 </body>
 </html>
