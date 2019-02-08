@@ -50,12 +50,13 @@ body, html{
 
 .section{
   text-align:center;
-  padding:50px 80px;
+  padding:50px 0;
 }
 
 .section-dark{
   background-color:#282e34;
   color:#ddd;
+  padding: 50px 80px;
 }
 
 .landing{
@@ -112,12 +113,19 @@ body, html{
 .codetext {
   display: inline-block;
   vertical-align: text-top;
-  width: 25%;
+  min-width: 200px;
+  max-width: 300px;
+  margin: 15px 30px;
 }
 
 .codetext img {
   width: 50%;
   height: auto;
+}
+
+.codetext p {
+  font-size: 18px;
+  text-align: justify;
 }
 
 .ctext {
