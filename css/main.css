@@ -268,7 +268,7 @@ footer {
   margin: auto;
   padding: 20px;
   border-radius: 25px;
-  width: 70%;
+  max-width: 650px;
 }
 
 .close {
