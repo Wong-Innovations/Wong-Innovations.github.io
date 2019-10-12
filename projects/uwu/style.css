@@ -42,3 +42,23 @@ textarea {
     display: inline-block;
     width: 35%;
 }
+
+@media only screen and (max-width: 600px) {
+    .inline-div {
+        display: block;
+        width: 80%;
+        margin: 0 auto;
+    }
+    .spacer {
+        display: none;
+    }
+    .container {
+        width:100%;
+    }
+    textarea {
+        margin: 0;
+    }
+    #button {
+        margin-top: 15px;
+    }
+  }
