@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>UWU Twanswatow</title>
+</head>
+<body>
+    
+    <div style="text-align: center;">
+        <div class="inline-div">
+            <textarea id="english">Some text...</textarea>
+        </div>
+        <div style="width:40px; display: inline-block;"></div>
+        <div class="inline-div">
+            <textarea id="translated">Some text...</textarea>
+        </div>
+    </div>
+    <div style="text-align: center;">
+        <input id="button" type="button" value="Twanswate" onclick="uwu();" />
+    </div>
+
+    <script type="text/javascript">
+        String.prototype.replaceAll = function(search, replacement) {
+            var target = this;
+            return target.split(search).join(replacement);
+        };
+
+        function uwu() {
+            // Get string from textarea
+            var string = document.getElementById("english").value;
+
+            // EDGE cases first
+            string = string.replaceAll("thic", "tic");
+            string = string.replaceAll("Thic", "Tic");
+            string = string.replaceAll("just", "juwst");
+            string = string.replaceAll("Just", "Juwst");
+            string = string.replaceAll("ooh", "uwu");
+            string = string.replaceAll("Ooh", "Uwu");
+            string = string.replaceAll("you", "yuw");
+            string = string.replaceAll("You", "Yuw");
+
+            // General rules
+            string = string.replaceAll("l", "w");
+            string = string.replaceAll("L", "W");
+            string = string.replaceAll("r", "w");
+            string = string.replaceAll("R", "W");
+            string = string.replaceAll(" th", " d");
+            string = string.replaceAll("th ", "f ");
+            string = string.replaceAll("th", "t");
+            string = string.replaceAll(" Th", " D");
+            string = string.replaceAll("ot", "owt");
+            string = string.replaceAll("Ot", "Owt");
+            string = string.replaceAll("is", "iws");
+            string = string.replaceAll("Is", "Iws");
+            string = string.replaceAll("it", "iwt");
+            string = string.replaceAll("It", "Iwt");
+            string = string.replaceAll("o ", "ow ");
+            string = string.replaceAll("twe ", "tle ");
+
+            // Punctuation
+            string = string.replaceAll("? ", "? :3 ");
+
+            // Insert translated text
+            document.getElementById("translated").value = string;
+        }
+    </script>
+</body>
+</html>
