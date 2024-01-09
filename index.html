@@ -1,184 +1,26 @@
-<!doctype html>
-
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="description" content="Computing Innovation">
-  <meta name="keywords" content="Coding,Student,Intern,Computer Science,Math">
-  <meta name="author" content="Dylan Wong">
-  
-  <link rel="stylesheet" type="text/css" href="./css/main.css">
-  <title>Wong Innovations - Home</title>
-</head>
-<body>
-  <div class="pimg1">
-    <div class="navlinks">
-      <div class="bars" onclick="dropdown()">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-      </div>
-      <a onclick="showModal()" id="contact">CONTACT</a>
-      <a href="./resume.pdf" target="_blank" class="un">RESUME</a>
-      <a href="./about.html" class="un">ABOUT</a>
-      <a href="./projects.html" class="un">PROJECTS</a>
-      <a href="" class="un">HOME</a>
-    </div>
-    <div class="landing">
-      <span style="position: relative; left: 10px;">
-        Let's Make Something.
-      </span>
-      <br>
-      <a onclick="showModal()" class="link">CONTACT</a>
-      <a href="./resume.pdf" target="_blank" class="link">RESUME</a>
-    </div>
-  </div>
-
-  <section class="section section-light">
-    <div class="codetext">
-      <img src="./img/python.png" alt="Python">
-      <p style="margin-top:15px;">Years of experience writing Python and learning APIs, libraries, and frameworks. From server-side Django, to Selenium web automation, to machine learning with TensorFlow, read more about my projects <a href="./projects.html" style="color:#666;">here</a>.</p>
-    </div>
-    <div class="codetext">
-      <img src="./img/react.png" style="margin-bottom: 12px;" alt="React">
-      <p>Keeping on the cutting edge of web development I am proficient in React and React Native. Additionally I am familiar with state management tools such as Redux and react-firebase. Some apps I have created with these tools are a citation generator, an online game Mafia, and contributed features to the app Staff Fox<sup>TM</sup>.</p>
-    </div>
-    <div class="codetext">
-      <img src="./img/aws.png" style="width:100%; margin: 10px 0 33px 0;" alt="AWS">
-      <p style="margin-top:8px;">The AWS platform provides many useful server / cloud tools. I have experince hosting websites on CloudFront, using Simple Email Service, and Lambda functions. As some of this code is proprietary, please drop me a line above or email me to see what I've done.</p>
-    </div>
-    <div class="codetext">
-      <img src="./img/infusionsoft.png" style="margin: 0 0 7px 0;" alt="InfusionSoft">
-      <p style="margin-top:8px;">Extensive knowledge of marketing and sales automation tools such as InfusionSoft, Pipedrive, and AutomateIO. I have linked webforms to CRM networks via the InfusionSoft API and automated processes such as confirming emails, moving through sales pipelines, and client side demo scheduling.</p>
-    </div>
-  </section>
-
-  <div class="pimg2">
-    <div class="ptext">
-      <span class="ctext">
-        Read about my latest projects <a href="./projects.html">here</a>.
-      </span>
-    </div>
-  </div>
-
-  <section class="section section-dark">
-    <h2>My Most Recent Video</h2>
-    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/DbKeYjbcelw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  </section>
-
-  <div class="pimg1">
-    <div class="ptext">
-      <span class="border">
-        Wong Innovations
-      </span>
-
-      <table class="socialNav">
-
-        <tr>
-          <td>
-            <a href="https://www.youtube.com/channel/UCq1QeEvXTggml38Tj7sSvrQ" target="_blank">
-              <img class="socialIcon" src="./img/youtube.png">
-            </a>
-          </td>
-          <td><p class="socialText">YouTube</p></td>
-        </tr>
-
-        <tr>
-          <td>
-            <a href="https://www.github.com/wong-innovations" target="_blank">
-              <img class="socialIcon" src="./img/github.png">
-            </a>
-          </td>
-          <td><p class="socialText">GitHub</p></td>
-        </tr>
-
-        <tr>
-          <td>
-            <a href="https://www.linkedin.com/in/dylan-wong-csrules/" target="_blank">
-              <img class="socialIcon" src="./img/linkedin.png">
-            </a>
-          </td>
-          <td><p class="socialText">LinkedIn</p></td>
-        </tr>
-
-      </table>
-    </div>
-  </div>
-
-  <div id="myModal" class="modal">
-
-    <div class="modal-content">
-
-      <span class="close">&times;</span>
-
-      <form action="https://docs.google.com/forms/d/e/1FAIpQLSej2pWdB1MyzpvzuTKMFFm2OLrWRASYSfpKRPZw_FIsFYJODQ/formResponse" target="hidden_iframe" method="POST" onsubmit="hideModal()">
-        <h1 style="text-align:center;margin-bottom:0;color:#2e2e2e">Drop Me A Line</h1>
-        <br>
-        <input type="text" name="entry.725941033" placeholder="Name*">
-        <input type="text" name="entry.1654627491" placeholder="Email*">
-        <input type="text" name="entry.1388997229" placeholder="Company/Organization">
-        <textarea name="entry.405716431" placeholder="Your Message*"></textarea>
-        <input type="submit" value="Submit">
-        <input type="reset" value="Reset">
-      </form>
-
-      <iframe name="hidden_iframe" src="" id="hidden_iframe" style="display:none;"></iframe>
-      
-    </div>
-
-  </div>
-
-  <script>
-    function dropdown(){
-      var links = document.getElementsByClassName("navlinks").getElementsByTagName("A");
-      links.style
-    }
-    function verticalCenter(){
-      let windowHeight = window.innerHeight;
-      document.getElementsByClassName("socialNav")[0].style.marginTop = ((windowHeight-296)/2).toString() + "px";
-    }
-    window.onload=verticalCenter;
-    window.onresize=verticalCenter;
-  </script>
-
-  <script>
-    // Model Code
-    var modal = document.getElementById('myModal');
-    var span = document.getElementsByClassName("close")[0];
-
-    function showModal() {
-      modal.style.display = "block";
-      disableScroll();
-    }
-
-    function hideModal() {
-      modal.style.display = "none";
-      enableScroll();
-    }
-
-    span.onclick = function() {
-      hideModal();
-    }
-
-    window.onclick = function(event) {
-      if (event.target == modal) {
-        hideModal();
-      }
-    }
-
-    // Scroll prevention
-    function noscroll() {
-      window.scrollTo( 0, 0 );
-    }
-
-    function disableScroll() {
-      window.addEventListener('scroll', noscroll);
-    }
-
-    function enableScroll() {
-      window.removeEventListener('scroll', noscroll);
-    }
-  </script>
-</body>
+<!DOCTYPE html>
+<html lang="en" class="overflow-visible">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      charset="UTF-8"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
+    />
+    <link rel="stylesheet" href="scrollbar.css" id="hide-scroll" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React</title>
+    <script type="module" crossorigin src="/assets/index-jLZarO0e.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-9IYN8L3z.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
 </html>
