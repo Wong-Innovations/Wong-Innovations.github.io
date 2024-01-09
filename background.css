@@ -1,0 +1,17 @@
+main {
+  position: relative;
+  isolation: isolate;
+}
+
+main::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+
+  background-image: url("./assets/website-background.png");
+  background-size: auto 100vh;
+  background-position-x: 32px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
