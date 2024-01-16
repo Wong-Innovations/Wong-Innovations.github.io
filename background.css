@@ -10,8 +10,24 @@ main::after {
   inset: 0;
 
   background-image: url("./assets/website-background.png");
-  background-size: auto 100vh;
-  background-position-x: 32px;
+  background-size: auto 95vh;
+  background-position-x: 72px;
+  background-position-y: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+main::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+
+  background-image: url("./assets/website-background-2.png");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
