@@ -24,10 +24,10 @@ main::before {
   inset: 0;
 
   background-image: url("./assets/website-background-2.png");
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  -webkit-background-size: auto 100vh;
+  -moz-background-size: auto 100vh;
+  -o-background-size: auto 100vh;
+  background-size: auto 100vh;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
