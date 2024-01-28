@@ -10,9 +10,9 @@ main::after {
   inset: 0;
 
   background-image: url("./assets/website-background.png");
-  background-size: auto 95vh;
+  background-size: auto 95dvh;
   background-position-x: 72px;
-  background-position-y: center;
+  background-position-y: 4dvh;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
