@@ -5,7 +5,7 @@ main {
 
 main::after {
   content: "";
-  position: absolute;
+  position: fixed;
   z-index: -1;
   inset: 0;
 
@@ -14,12 +14,11 @@ main::after {
   background-position-x: 72px;
   background-position-y: 4dvh;
   background-repeat: no-repeat;
-  background-attachment: fixed;
 }
 
 main::before {
   content: "";
-  position: absolute;
+  position: fixed;
   z-index: -1;
   inset: 0;
 
@@ -29,5 +28,4 @@ main::before {
   -o-background-size: auto 100vh;
   background-size: auto 100vh;
   background-repeat: no-repeat;
-  background-attachment: fixed;
 }
